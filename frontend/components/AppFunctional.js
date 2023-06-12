@@ -33,28 +33,44 @@ export default function AppFunctional(props) {
   function getNextIndex(direction) {
     let newIndex = index;
     switch (direction) {
-      case 'left':
-        if (newIndex % 3 > 0) newIndex -= 1;
-        break;
-      case 'up':
-        if (newIndex - 3 >= 0) newIndex -= 3;
-        break;
-      case 'right':
-        if (newIndex % 3 < 2) newIndex += 1;
-        break;
-      case 'down':
-        if (newIndex + 3 < 9) newIndex += 3;
-        break;
+        case "left":
+            if (index % 3 !== 0) {
+                newIndex = index - 1;
+            }
+            break;
+        case "up":
+            if (index >= 3) {
+                newIndex = index - 3;
+            }
+            break;
+        case "right":
+            if (index % 3 !== 2) {
+                newIndex = index + 1;
+            }
+            break;
+        case "down":
+            if (index <= 5) {
+                newIndex = index + 3;
+            }
+            break;
+        default:
+            break;
     }
     return newIndex;
-  }
+}
 
-  function move(evt) {
-    const direction = evt.target.id;
+function move(evt) {
+    const direction = evt.target.id;  // get direction from button id
     const newIndex = getNextIndex(direction);
-    setIndex(newIndex);
-    setSteps(steps + 1);
-  }
+    
+    if (newIndex === index) {
+        setMessage(`You can't move ${direction.toUpperCase()} any further.`);
+    } else {
+        setIndex(newIndex);
+        setSteps(steps + 1);
+    }
+}
+
 
   function onChange(evt) {
     setEmail(evt.target.value);
