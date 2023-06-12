@@ -1,10 +1,9 @@
 import React from 'react'
 
-// Suggested initial states
 const initialMessage = ''
 const initialEmail = ''
 const initialSteps = 0
-const initialIndex = 4 // the index the "B" is at
+const initialIndex = 4 
 
 const initialState = {
   message: initialMessage,
@@ -14,42 +13,65 @@ const initialState = {
 }
 
 export default class AppClass extends React.Component {
-  // THE FOLLOWING HELPERS ARE JUST RECOMMENDATIONS.
-  // You can delete them and build your own logic from scratch.
 
-  getXY = () => {
-    // It it not necessary to have a state to track the coordinates.
-    // It's enough to know what index the "B" is at, to be able to calculate them.
-  }
+getXY = () => {
+  const x = this.state.index % 3 + 1; 
+  const y = Math.floor(this.state.index / 3) + 1;
+}
 
-  getXYMessage = () => {
-    // It it not necessary to have a state to track the "Coordinates (2, 2)" message for the user.
-    // You can use the `getXY` helper above to obtain the coordinates, and then `getXYMessage`
-    // returns the fully constructed string.
-  }
+getXYMessage = () => {
+  const [x, y] = this.getXY();
+  return `Coordinates (${x}, ${y})`;
+}
 
-  reset = () => {
-    // Use this helper to reset all states to their initial values.
-  }
+reset = () => {
+  this.setState(initialState);
+}
 
-  getNextIndex = (direction) => {
-    // This helper takes a direction ("left", "up", etc) and calculates what the next index
-    // of the "B" would be. If the move is impossible because we are at the edge of the grid,
-    // this helper should return the current index unchanged.
+getNextIndex = (direction) => {
+  let newIndex = this.state.index;
+  switch (direction) {
+    case 'left':
+      if (newIndex % 3 > 0) newIndex -= 1;
+      break;
+    case 'up':
+      if (newIndex - 3 >= 0) newIndex -= 3;
+      break;
+    case 'right':
+      if (newIndex % 3 < 2) newIndex += 1;
+      break;
+    case 'down':
+      if (newIndex + 3 < 9) newIndex += 3;
+      break;
   }
+  return newIndex;
+}
 
-  move = (evt) => {
-    // This event handler can use the helper above to obtain a new index for the "B",
-    // and change any states accordingly.
-  }
+move = (evt) => {
+  const direction = evt.target.id;
+  const newIndex = this.getNextIndex(direction);
+  this.setState({ index: newIndex, steps: this.state.steps + 1 });
+}
 
-  onChange = (evt) => {
-    // You will need this to update the value of the input.
-  }
+onChange = (evt) => {
+  this.setState({ email: evt.target.value });
+}
 
-  onSubmit = (evt) => {
-    // Use a POST request to send a payload to the server.
+onSubmit = async (evt) => {
+  evt.preventDefault();
+  const [x, y] = this.getXY();
+  try {
+    const response = await axios.post('http://localhost:9000/api/result', {
+      x,
+      y,
+      steps: this.state.steps,
+      email: this.state.email,
+    });
+    this.setState({ message: response.data.message });
+  } catch (error) {
+    this.setState({ message: error.response.data.message });
   }
+}
 
   render() {
     const { className } = this.props

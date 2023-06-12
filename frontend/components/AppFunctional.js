@@ -60,43 +60,45 @@ export default function AppFunctional(props) {
 }
 
 function move(evt) {
-    const direction = evt.target.id;  // get direction from button id
+    const direction = evt.target.id; 
     const newIndex = getNextIndex(direction);
     
     if (newIndex === index) {
-        setMessage(`You can't move ${direction.toUpperCase()} any further.`);
+      setMessage(`You can't go ${direction}`);
     } else {
         setIndex(newIndex);
         setSteps(steps + 1);
     }
 }
 
+function onChange(evt) {
+  setEmail(evt.target.value);
+}
 
-  function onChange(evt) {
-    setEmail(evt.target.value);
-  }
+function onSubmit(evt) {
+  evt.preventDefault(); 
+  const [x, y] = getXY();
+  axios.post('http://localhost:9000/api/result', {
+    x,
+    y,
+    steps: steps,
+    email: email,
+  })
+  .then(response => {
+    setMessage(response.data.message);
+    setEmail(''); 
+  })
+  .catch(error => {
+    setMessage(error.response ? error.response.data.message : 'Something went wrong!');
+  });
+}
 
-  async function onSubmit(evt) {
-    evt.preventDefault();
-    const [x, y] = getXY();
-    try {
-      const response = await axios.post('http://localhost:9000/api/result', {
-        x,
-        y,
-        steps: steps,
-        email: email,
-      });
-      setMessage(response.data.message);
-    } catch (error) {
-      setMessage(error.response.data.message);
-    }
-  }
 
 return (
   <div id="wrapper" className={props.className}>
     <div className="info">
       <h3 id="coordinates">{getXYMessage()}</h3>
-      <h3 id="steps">You moved {steps} times</h3>
+      <h3 id="steps">You moved {steps} time{steps === 1 ? '' : 's'}</h3>
     </div>
     <div id="grid">
       {
