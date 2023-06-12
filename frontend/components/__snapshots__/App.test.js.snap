@@ -1,0 +1,268 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<AppClass /> renders correctly 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        id="wrapper"
+      >
+        <div
+          class="info"
+        >
+          <h3
+            id="coordinates"
+          >
+            Coordinates (2, 2)
+          </h3>
+          <h3
+            id="steps"
+          >
+            You moved 
+            0
+             time
+            s
+          </h3>
+        </div>
+        <div
+          id="grid"
+        >
+          <div
+            class="square"
+          />
+          <div
+            class="square"
+          />
+          <div
+            class="square"
+          />
+          <div
+            class="square"
+          />
+          <div
+            class="square active"
+          >
+            B
+          </div>
+          <div
+            class="square"
+          />
+          <div
+            class="square"
+          />
+          <div
+            class="square"
+          />
+          <div
+            class="square"
+          />
+        </div>
+        <div
+          class="info"
+        >
+          <h3
+            id="message"
+          />
+        </div>
+        <div
+          id="keypad"
+        >
+          <button
+            id="left"
+          >
+            LEFT
+          </button>
+          <button
+            id="up"
+          >
+            UP
+          </button>
+          <button
+            id="right"
+          >
+            RIGHT
+          </button>
+          <button
+            id="down"
+          >
+            DOWN
+          </button>
+          <button
+            id="reset"
+          >
+            reset
+          </button>
+        </div>
+        <form>
+          <input
+            id="email"
+            placeholder="type email"
+            type="email"
+            value=""
+          />
+          <input
+            id="submit"
+            type="submit"
+          />
+        </form>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      id="wrapper"
+    >
+      <div
+        class="info"
+      >
+        <h3
+          id="coordinates"
+        >
+          Coordinates (2, 2)
+        </h3>
+        <h3
+          id="steps"
+        >
+          You moved 
+          0
+           time
+          s
+        </h3>
+      </div>
+      <div
+        id="grid"
+      >
+        <div
+          class="square"
+        />
+        <div
+          class="square"
+        />
+        <div
+          class="square"
+        />
+        <div
+          class="square"
+        />
+        <div
+          class="square active"
+        >
+          B
+        </div>
+        <div
+          class="square"
+        />
+        <div
+          class="square"
+        />
+        <div
+          class="square"
+        />
+        <div
+          class="square"
+        />
+      </div>
+      <div
+        class="info"
+      >
+        <h3
+          id="message"
+        />
+      </div>
+      <div
+        id="keypad"
+      >
+        <button
+          id="left"
+        >
+          LEFT
+        </button>
+        <button
+          id="up"
+        >
+          UP
+        </button>
+        <button
+          id="right"
+        >
+          RIGHT
+        </button>
+        <button
+          id="down"
+        >
+          DOWN
+        </button>
+        <button
+          id="reset"
+        >
+          reset
+        </button>
+      </div>
+      <form>
+        <input
+          id="email"
+          placeholder="type email"
+          type="email"
+          value=""
+        />
+        <input
+          id="submit"
+          type="submit"
+        />
+      </form>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
